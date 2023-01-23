@@ -20,16 +20,17 @@ public class SecurityConfig {
 
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
-        UserDetails admin = User.withUsername("melck")
+       /*  UserDetails admin = User.withUsername("melck")
                                 .password(encoder.encode("123456"))
-                                .roles("ADMIN")
+                                .roles("ADMIN","HR")
                                 .build();
         
         UserDetails user = User.withUsername("junior")
                                 .password(encoder.encode("123456"))
                                 .roles("USER")
                                 .build();
-        return new InMemoryUserDetailsManager(admin,user);
+        return new InMemoryUserDetailsManager(admin,user); */
+        return new UserDetailsService();
     }
 
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
