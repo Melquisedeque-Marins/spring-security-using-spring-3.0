@@ -42,10 +42,11 @@ public class SecurityConfig {
         return new UserInfoDetailsService();
     }
 
+    @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/hello/everyone", "/hello/authenticate").permitAll()
+                .requestMatchers("/hello/authenticate").permitAll()
                 .and()                
                 .authorizeHttpRequests().requestMatchers("/hello/**")
                 .authenticated()
